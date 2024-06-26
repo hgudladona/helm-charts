@@ -61,6 +61,12 @@ searcher:
     # - configMapRef:
     #     name: quickwit-searcher
 
+  # extraVolumes -- Additional Volumes to use with Vector Pods.
+  extraVolumes: []
+
+  # extraVolumeMounts -- Additional Volume to mount into Vector Containers.
+  extraVolumeMounts: []
+
   resources: {}
     # limits:
     #   cpu: 100m
@@ -125,6 +131,12 @@ indexer:
     #     name: quickwit-indexer
     # - configMapRef:
     #     name: quickwit-indexer
+
+  # extraVolumes -- Additional Volumes to use with Vector Pods.
+  extraVolumes: []
+
+  # extraVolumeMounts -- Additional Volume to mount into Vector Containers.
+  extraVolumeMounts: []
 
   resources: {}
     # limits:
@@ -192,6 +204,12 @@ metastore:
     # - configMapRef:
     #     name: quickwit-metastore
 
+  # extraVolumes -- Additional Volumes to use with Vector Pods.
+  extraVolumes: []
+
+  # extraVolumeMounts -- Additional Volume to mount into Vector Containers.
+  extraVolumeMounts: []
+
   resources: {}
     # limits:
     #   cpu: 100m
@@ -245,6 +263,12 @@ control_plane:
     # - configMapRef:
     #     name: quickwit-control-plane
 
+  # extraVolumes -- Additional Volumes to use with Vector Pods.
+  extraVolumes: []
+
+  # extraVolumeMounts -- Additional Volume to mount into Vector Containers.
+  extraVolumeMounts: []
+
   resources: {}
     # limits:
     #   cpu: 100m
@@ -295,6 +319,12 @@ janitor:
     #     name: quickwit-janitor
     # - configMapRef:
     #     name: quickwit-janitor
+
+  # extraVolumes -- Additional Volumes to use with Vector Pods.
+  extraVolumes: []
+
+  # extraVolumeMounts -- Additional Volume to mount into Vector Containers.
+  extraVolumeMounts: []
 
   resources: {}
     # limits:
@@ -347,6 +377,12 @@ bootstrap:
     #     name: quickwit-boostrap
     # - configMapRef:
     #     name: quickwit-boostrap
+
+  # extraVolumes -- Additional Volumes to use with Vector Pods.
+  extraVolumes: []
+
+  # extraVolumeMounts -- Additional Volume to mount into Vector Containers.
+  extraVolumeMounts: []
 
   resources: {}
     # limits:

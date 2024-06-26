@@ -62,6 +62,9 @@ spec:
             mountPath: /quickwit/{{ .source.source_id }}.yaml
             subPath: {{ .source.source_id }}.yaml
           {{- end }}
+          {{- with .Values.indexer.extraVolumeMounts }}
+            {{- toYaml . | nindent 10 }}
+          {{- end }}
         resources:
           {{- toYaml $.Values.bootstrap.resources | nindent 10 }}
       volumes:
@@ -77,5 +80,8 @@ spec:
             items:
               - key: {{ .source.source_id }}.yaml
                 path: {{ .source.source_id }}.yaml
+         {{- with .Values.indexer.extraVolumes }}
+           {{- toYaml . | nindent 8 }}
+         {{- end }}
 {{- end }}
 {{- end }}

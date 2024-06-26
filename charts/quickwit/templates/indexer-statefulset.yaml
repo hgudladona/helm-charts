@@ -87,6 +87,9 @@ spec:
             - name: {{ .name }}
               mountPath: {{ .mountPath }}
             {{- end }}
+            {{- with .Values.indexer.extraVolumeMounts }}
+              {{- toYaml . | nindent 10 }}
+            {{- end }}
           resources:
             {{- toYaml .Values.indexer.resources | nindent 12 }}
       volumes:
@@ -104,6 +107,9 @@ spec:
         - name: {{ .name }}
           configMap:
             name: {{ .name }}
+        {{- end }}
+        {{- with .Values.indexer.extraVolumes }}
+          {{- toYaml . | nindent 8 }}
         {{- end }}
       {{- with .Values.indexer.nodeSelector }}
       nodeSelector:
