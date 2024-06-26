@@ -99,6 +99,9 @@ searcher:
       path: /health/readyz
       port: rest
 
+  # initContainers -- Init Containers to be added to the pods
+  initContainers: []
+
   annotations: {}
 
   podAnnotations: {}
@@ -155,6 +158,9 @@ indexer:
     httpGet:
       path: /health/readyz
       port: rest
+
+  # initContainers -- Init Containers to be added to the pods
+  initContainers: []
 
   annotations: {}
 
@@ -214,6 +220,9 @@ metastore:
       path: /health/readyz
       port: rest
 
+  # initContainers -- Init Containers to be added to the pods
+  initContainers: []
+
   annotations: {}
 
   podAnnotations: {}
@@ -260,6 +269,9 @@ control_plane:
     httpGet:
       path: /health/readyz
       port: rest
+
+  # initContainers -- Init Containers to be added to the pods
+  initContainers: []
 
   annotations: {}
 
@@ -309,6 +321,9 @@ janitor:
       path: /health/readyz
       port: rest
 
+  # initContainers -- Init Containers to be added to the pods
+  initContainers: []
+
   annotations: {}
 
   podAnnotations: {}
@@ -341,6 +356,9 @@ bootstrap:
     #   cpu: 100m
     #   memory: 128Mi
 
+  # initContainers -- Init Containers to be added to the pods
+  initContainers: []
+
   nodeSelector: {}
 
   tolerations: []
@@ -352,6 +370,7 @@ bootstrap:
 # Warning: This config is writed directly into a configMap
 # to avoid passing sensitive value you can pass environment variables.
 # https://quickwit.io/docs/configuration/node-config#using-environment-variables-in-the-configuration
+configLocation: /quickwit/node.yaml
 config:
   version: 0.8
   listen_address: 0.0.0.0
