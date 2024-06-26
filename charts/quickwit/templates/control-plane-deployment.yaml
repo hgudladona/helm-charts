@@ -39,7 +39,7 @@ spec:
       serviceAccountName: {{ include "quickwit.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      {{ - with .Values.initContainers }}
+      {{- with .Values.control_plane.initContainers }}
       initContainers:
         {{ toYaml . | indent 8 }}
       {{ end }}
