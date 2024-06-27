@@ -41,7 +41,7 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       {{- with .Values.control_plane.initContainers }}
       initContainers:
-        {{ toYaml . | indent 8 }}
+        {{- toYaml . | nindent 8 }}
       {{ end }}
       containers:
         - name: {{ .Chart.Name }}
@@ -84,7 +84,7 @@ spec:
               mountPath: {{ .mountPath }}
             {{- end }}
             {{- with .Values.indexer.extraVolumeMounts }}
-              {{- toYaml . | nindent 10 }}
+              {{- toYaml . | nindent 12 }}
             {{- end }}
           resources:
             {{- toYaml .Values.control_plane.resources | nindent 14 }}

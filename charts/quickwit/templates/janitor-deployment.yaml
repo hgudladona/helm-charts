@@ -42,7 +42,7 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       {{- with .Values.janitor.initContainers }}
       initContainers:
-        {{ toYaml . | indent 8 }}
+        {{ toYaml . | nindent 8 }}
       {{ end }}
       containers:
         - name: {{ .Chart.Name }}
@@ -85,7 +85,7 @@ spec:
               mountPath: {{ .mountPath }}
             {{- end }}
             {{- with .Values.indexer.extraVolumeMounts }}
-              {{- toYaml . | nindent 10 }}
+              {{- toYaml . | nindent 12 }}
             {{- end }}
           resources:
             {{- toYaml .Values.janitor.resources | nindent 14 }}

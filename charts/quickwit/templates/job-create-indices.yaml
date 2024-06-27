@@ -27,9 +27,9 @@ spec:
       securityContext:
         {{- toYaml $.Values.podSecurityContext | nindent 8 }}
       restartPolicy: Never
-      {{- with .Values.jobs.indexes.initContainers }}
+      {{- with $.Values.jobs.indexes.initContainers }}
       initContainers:
-        {{ toYaml . | indent 8 }}
+        {{ toYaml . | nindent 8 }}
       {{ end }}
       containers:
       - name: {{ $.Chart.Name }}
@@ -60,7 +60,7 @@ spec:
           - name: index
             mountPath: /quickwit/{{ .index_id }}.yaml
             subPath: {{ .index_id }}.yaml
-          {{- with .Values.indexer.extraVolumeMounts }}
+          {{- with $.Values.jobs.indexes.extraVolumeMounts }}
             {{- toYaml . | nindent 10 }}
           {{- end }}
         resources:
@@ -78,7 +78,7 @@ spec:
             items:
               - key: {{ .index_id }}.yaml
                 path: {{ .index_id }}.yaml
-         {{- with .Values.indexer.extraVolumes }}
+         {{- with $.Values.jobs.indexes.extraVolumes }}
            {{- toYaml . | nindent 8 }}
          {{- end }}
 {{- end }}

@@ -40,7 +40,7 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       {{- with .Values.metastore.initContainers -}}
       initContainers:
-        {{ toYaml . | indent 8 }}
+        {{- toYaml . | nindent 8 }}
       {{ end }}
       containers:
         - name: {{ .Chart.Name }}
@@ -82,8 +82,8 @@ spec:
             - name: {{ .name }}
               mountPath: {{ .mountPath }}
             {{- end }}
-            {{- with .Values.indexer.extraVolumeMounts }}
-              {{- toYaml . | nindent 10 }}
+            {{- with .Values.metastore.extraVolumeMounts }}
+              {{- toYaml . | nindent 12 }}
             {{- end }}
           resources:
             {{- toYaml .Values.metastore.resources | nindent 14 }}
@@ -101,7 +101,7 @@ spec:
           configMap:
             name: {{ .name }}
         {{- end }}
-        {{- with .Values.indexer.extraVolumes }}
+        {{- with .Values.metastore.extraVolumes }}
           {{- toYaml . | nindent 10 }}
         {{- end }}
       {{- with .Values.metastore.nodeSelector }}
